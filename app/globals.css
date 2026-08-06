@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* SpotterDesk Brand Colors as Variables */
+    --background: #fdf8f8;
+    --foreground: #1c1b1b;
+    --primary: #5b5fef;
+    --primary-hover: #4a4edb;
+    --text-muted: #464555;
+    --border-subtle: #f1f1f1;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+    /* Font rendering improvements */
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    @apply antialiased min-h-screen overflow-x-hidden;
+    /* Global line height for better readability */
+    line-height: 1.6;
+  }
+
+  /* Responsive Headings Scale */
+  h1, h2, h3, h4 {
+    @apply font-bold tracking-tight text-[#1c1b1b];
+  }
+}
+
+@layer components {
+  /* Standard Container for all sections */
+  .layout-container {
+    @apply max-w-[1280px] mx-auto px-6 w-full;
+  }
+  
+  /* Section Spacing Utility - Use this to fix extra white space */
+  .section-spacing {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+
+  /* Smooth transitions for all interactive elements */
+  a, button {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  /* Shared Button Styles (Optional but helpful) */
+  .btn-primary {
+    @apply bg-[#5b5fef] text-white px-6 py-2.5 rounded-full font-bold 
+           hover:bg-[#4a4edb] hover:shadow-lg active:scale-95 transition-all;
+  }
+}
+
+@layer utilities {
+  /* Text Clamping for clean cards */
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* Remove highlight on mobile tap */
+  .tap-none {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* --- Custom Premium Scrollbar --- */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e6e1e1;
+  border-radius: 20px;
+  border: 3px solid var(--background); /* Creates a 'floating' effect */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Selection color */
+::selection {
+  background-color: rgba(91, 95, 239, 0.1);
+  color: var(--primary);
+}
