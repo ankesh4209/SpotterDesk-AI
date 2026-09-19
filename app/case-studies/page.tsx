@@ -51,39 +51,39 @@ export default function CaseStudiesPage() {
     <div className="flex flex-col min-h-screen bg-white">
       <Navbar />
 
-      <main className="flex-grow pt-32 pb-24">
-        <div className="max-w-[1280px] mx-auto px-6">
+      <main className="flex-grow pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 w-full max-w-full overflow-x-hidden">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
           
           {/* --- Hero Header --- */}
-          <div className="text-center mb-16 md:mb-24 max-w-3xl mx-auto">
+          <div className="text-center mb-10 sm:mb-14 md:mb-16 max-w-3xl mx-auto">
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 text-[#5b5fef] text-xs font-semibold uppercase tracking-wider mb-6 shadow-sm"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 text-[#5b5fef] text-xs font-semibold uppercase tracking-wider mb-4 sm:mb-5 shadow-sm"
             >
               Proof of Performance
             </motion.div>
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-4xl md:text-7xl font-extrabold text-slate-900 tracking-tight mb-6"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-extrabold text-slate-900 tracking-tight leading-[1.15] mb-4 sm:mb-5"
             >
               Real Results. <span className="bg-gradient-to-r from-[#5b5fef] to-indigo-600 bg-clip-text text-transparent">Verified.</span>
             </motion.h1>
-            <p className="text-slate-600 text-lg md:text-xl leading-relaxed">
+            <p className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
               We don't just promise efficiency; we deliver it. Explore how forward-thinking leaders are leveraging SpotterDesk AI to transform their operations.
             </p>
           </div>
 
           {/* --- Case Studies List --- */}
-          <div className="space-y-16 md:space-y-24">
+          <div className="space-y-12 sm:space-y-16 md:space-y-24">
             {cases.map((item, i) => (
               <motion.div 
                 key={i}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
-                className={`grid lg:grid-cols-2 gap-12 md:gap-16 items-center ${i % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}
+                className={`grid lg:grid-cols-2 gap-8 md:gap-16 items-center ${i % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}
               >
                 {/* Image Section */}
                 <div className={`${i % 2 !== 0 ? 'lg:order-2' : ''}`}>
@@ -94,7 +94,7 @@ export default function CaseStudiesPage() {
                         alt={item.title} 
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       />
-                      <div className="absolute top-5 left-5 flex gap-2">
+                      <div className="absolute top-4 left-4 sm:top-5 sm:left-5 flex flex-wrap gap-2">
                         {item.tags.map(tag => (
                           <span key={tag} className="bg-white/95 backdrop-blur-md text-slate-900 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-sm">
                             {tag}
@@ -106,26 +106,26 @@ export default function CaseStudiesPage() {
                 </div>
 
                 {/* Content Section */}
-                <div className="space-y-6">
+                <div className="space-y-5 sm:space-y-6">
                   <div>
                     <div className="text-[#5b5fef] font-bold text-xs uppercase tracking-wider mb-2">{item.company} — {item.industry}</div>
-                    <h2 className="text-3xl md:text-4xl font-bold text-slate-900 leading-tight mb-4">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 leading-tight mb-3 sm:mb-4">
                       {item.title}
                     </h2>
-                    <p className="text-slate-600 text-base md:text-lg leading-relaxed mb-6">
+                    <p className="text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed mb-4 sm:mb-6">
                       {item.description}
                     </p>
                   </div>
 
                   {/* Stats Grid */}
-                  <div className="grid grid-cols-2 gap-6 p-6 bg-slate-50 rounded-2xl border border-slate-200/80">
+                  <div className="grid grid-cols-2 gap-3 sm:gap-6 p-4 sm:p-6 bg-slate-50 rounded-2xl border border-slate-200/80">
                     {item.stats.map((stat, idx) => (
                       <div key={idx}>
                         <div className="flex items-center gap-2 text-[#5b5fef] mb-1">
                           {stat.icon}
-                          <span className="text-2xl md:text-3xl font-black tracking-tight">{stat.value}</span>
+                          <span className="text-xl sm:text-2xl md:text-3xl font-black tracking-tight">{stat.value}</span>
                         </div>
-                        <div className="text-slate-500 text-xs font-bold uppercase tracking-wider">{stat.label}</div>
+                        <div className="text-slate-500 text-[10px] sm:text-xs font-bold uppercase tracking-wider">{stat.label}</div>
                       </div>
                     ))}
                   </div>
@@ -134,7 +134,7 @@ export default function CaseStudiesPage() {
                     href={BOOKING_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 font-bold text-slate-900 group hover:text-[#5b5fef] transition-colors pt-2"
+                    className="inline-flex items-center gap-2 font-bold text-slate-900 group hover:text-[#5b5fef] transition-colors pt-2 text-sm sm:text-base"
                   >
                     Schedule Similar Implementation
                     <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform text-[#5b5fef]" />
@@ -145,17 +145,17 @@ export default function CaseStudiesPage() {
           </div>
 
           {/* --- Bottom CTA --- */}
-          <section className="mt-24 md:mt-32 text-center bg-[#0b0f19] rounded-[40px] p-10 md:p-20 text-white relative overflow-hidden border border-slate-800">
+          <section className="mt-16 sm:mt-24 md:mt-32 text-center bg-[#0b0f19] rounded-3xl sm:rounded-[40px] p-6 sm:p-10 md:p-20 text-white relative overflow-hidden border border-slate-800">
             <div className="relative z-10 max-w-2xl mx-auto">
-              <h2 className="text-3xl md:text-5xl font-bold mb-5 tracking-tight text-white">Your success story starts here.</h2>
-              <p className="text-slate-300 text-base md:text-lg mb-8 leading-relaxed">
+              <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-5 tracking-tight text-white">Your success story starts here.</h2>
+              <p className="text-slate-300 text-sm sm:text-base md:text-lg mb-6 sm:mb-8 leading-relaxed">
                 Ready to see what SpotterDesk AI can do for your business operations? Let's engineer a custom workflow.
               </p>
               <a 
                 href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-[#5b5fef] hover:bg-[#4a4edb] text-white px-9 py-4 rounded-xl font-bold transition-all shadow-xl shadow-indigo-500/25"
+                className="inline-block bg-[#5b5fef] hover:bg-[#4a4edb] text-white px-8 sm:px-9 py-3.5 sm:py-4 rounded-xl font-bold transition-all shadow-xl shadow-indigo-500/25 w-full sm:w-auto text-center"
               >
                 Schedule a Consultation
               </a>

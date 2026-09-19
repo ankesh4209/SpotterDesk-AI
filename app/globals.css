@@ -18,8 +18,14 @@
     border-color: var(--border-subtle);
   }
 
+  html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+    width: 100%;
+  }
+
   html {
-    @apply scroll-smooth;
+    @apply scroll-smooth overflow-x-hidden;
     text-rendering: optimizeLegibility;
   }
 
@@ -28,6 +34,7 @@
     color: var(--foreground);
     @apply antialiased min-h-screen overflow-x-hidden;
     line-height: 1.6;
+    position: relative;
   }
 
   /* Responsive Headings Scale */
@@ -39,7 +46,7 @@
 @layer components {
   /* Standard Container for all sections */
   .layout-container {
-    @apply max-w-[1280px] mx-auto px-6 w-full;
+    @apply max-w-[1280px] mx-auto px-4 sm:px-6 w-full;
   }
   
   /* Section Spacing Utility - Use this to fix extra white space */

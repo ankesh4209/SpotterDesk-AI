@@ -26,15 +26,15 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="bg-slate-50/80 border-y border-slate-200/60 py-20 md:py-28">
-      <div className="max-w-[1280px] mx-auto px-6">
+    <section className="bg-slate-50/80 border-y border-slate-200/60 py-16 sm:py-20 md:py-28 overflow-hidden">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
         
         {/* Section Header */}
-        <div className="mb-14 md:mb-20 text-center max-w-2xl mx-auto">
+        <div className="mb-10 sm:mb-14 md:mb-20 text-center max-w-2xl mx-auto">
           <span className="text-[#5b5fef] font-bold text-xs uppercase tracking-[0.2em] mb-3 block">
             Three-Step Framework
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">
             How SpotterDesk Works
           </h2>
           <p className="text-slate-600 text-base md:text-lg mt-4 leading-relaxed">
@@ -43,7 +43,7 @@ export default function HowItWorks() {
         </div>
 
         {/* Steps Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {steps.map((step, index) => (
             <motion.div 
               key={step.id}
@@ -51,7 +51,7 @@ export default function HowItWorks() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.15 }}
-              className="group relative p-8 rounded-3xl bg-white border border-slate-200/80 shadow-sm hover:shadow-xl hover:shadow-indigo-500/5 hover:border-indigo-200 transition-all duration-300 flex flex-col justify-between"
+              className="group relative p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-slate-200/80 shadow-sm hover:shadow-xl hover:shadow-indigo-500/5 hover:border-indigo-200 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 {/* Header row with Icon and Step Badge */}

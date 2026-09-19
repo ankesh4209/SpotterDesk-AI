@@ -32,56 +32,61 @@ export default function AutomationsPage() {
     <div className="flex flex-col min-h-screen bg-white">
       <Navbar />
 
-      <main className="flex-grow">
+      <main className="flex-grow w-full max-w-full overflow-x-hidden">
         {/* --- Hero Section --- */}
-        <section className="pt-32 pb-20 md:pt-40 md:pb-28">
-          <div className="max-w-[1280px] mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+        <section className="pt-24 sm:pt-28 md:pt-32 pb-12 md:pb-16 overflow-hidden">
+          <div className="max-w-[1280px] mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
+              className="text-center lg:text-left"
             >
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 text-[#5b5fef] text-xs font-semibold uppercase tracking-wider mb-6 shadow-sm">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 text-[#5b5fef] text-xs font-semibold uppercase tracking-wider mb-4 sm:mb-5 shadow-sm">
                 <Workflow size={14} /> Intelligent Workflows
               </div>
-              <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-slate-900 leading-[1.1] mb-8 tracking-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-extrabold text-slate-900 leading-[1.15] mb-4 sm:mb-5 tracking-tight">
                 Beyond Voice. <br />
                 <span className="bg-gradient-to-r from-[#5b5fef] to-indigo-600 bg-clip-text text-transparent">
                   Pure Autonomous Action.
                 </span>
               </h1>
-              <p className="text-slate-600 text-lg md:text-xl leading-relaxed mb-10 max-w-xl">
+              <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-6 sm:mb-8 max-w-xl mx-auto lg:mx-0">
                 Don't just talk to customers. Let SpotterDesk AI handle the heavy lifting by connecting your voice agents to 5,000+ apps, CRMs, and internal databases.
               </p>
-              <a 
-                href={BOOKING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-[#5b5fef] hover:bg-[#4a4edb] text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg shadow-indigo-500/25 inline-flex items-center gap-3 w-fit"
-              >
-                Build a Workflow <ArrowRight size={20} />
-              </a>
+              <div className="flex justify-center lg:justify-start">
+                <a 
+                  href={BOOKING_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#5b5fef] hover:bg-[#4a4edb] text-white px-8 py-3.5 rounded-xl font-bold transition-all shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/35 hover:-translate-y-0.5 inline-flex items-center justify-center gap-3 w-full sm:w-auto text-center"
+                >
+                  Build a Workflow <ArrowRight size={20} />
+                </a>
+              </div>
             </motion.div>
 
-            <div className="relative">
-              <div className="absolute inset-0 bg-[#5b5fef]/15 blur-[100px] rounded-full -z-10" />
-              <img 
-                src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&q=80&w=1200" 
-                alt="AI Automation Concept" 
-                className="rounded-[36px] shadow-2xl border border-slate-200/80"
-              />
+            <div className="relative mt-6 lg:mt-0 flex justify-center items-center w-full">
+              <div className="w-full max-w-lg relative">
+                <div className="absolute inset-0 bg-[#5b5fef]/15 blur-[100px] rounded-full -z-10" />
+                <img 
+                  src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&q=80&w=1200" 
+                  alt="AI Automation Concept" 
+                  className="rounded-3xl shadow-2xl border border-slate-200/80 w-full object-cover aspect-[4/3] max-h-[380px] sm:max-h-[420px]"
+                />
+              </div>
             </div>
           </div>
         </section>
 
         {/* --- Automation Cards --- */}
-        <section className="py-20 md:py-28 bg-slate-50/70 border-y border-slate-200/60">
-          <div className="max-w-[1280px] mx-auto px-6">
-            <div className="mb-16 text-center max-w-2xl mx-auto">
+        <section className="py-16 sm:py-20 md:py-28 bg-slate-50/70 border-y border-slate-200/60 overflow-hidden">
+          <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
+            <div className="mb-12 sm:mb-16 text-center max-w-2xl mx-auto">
               <span className="text-[#5b5fef] font-bold text-xs uppercase tracking-[0.2em] mb-3 block">
                 Workflow Orchestration
               </span>
-              <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-4 tracking-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4 tracking-tight">
                 Automate your <span className="text-[#5b5fef]">entire stack.</span>
               </h2>
               <p className="text-slate-600 text-base md:text-lg leading-relaxed">
@@ -89,18 +94,18 @@ export default function AutomationsPage() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
               {workflows.map((flow, i) => (
-                <div key={i} className="p-8 rounded-3xl border border-slate-200/80 bg-white hover:border-indigo-200 hover:shadow-xl hover:shadow-indigo-500/5 transition-all group flex flex-col justify-between">
+                <div key={i} className="p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-slate-200/80 bg-white hover:border-indigo-200 hover:shadow-xl hover:shadow-indigo-500/5 transition-all group flex flex-col justify-between">
                   <div>
-                    <div className={`w-14 h-14 ${flow.color} text-white rounded-2xl flex items-center justify-center mb-8 shadow-md`}>
+                    <div className={`w-14 h-14 ${flow.color} text-white rounded-2xl flex items-center justify-center mb-6 sm:mb-8 shadow-md`}>
                       {flow.icon}
                     </div>
-                    <h3 className="text-2xl font-bold text-slate-900 mb-6">{flow.title}</h3>
-                    <div className="space-y-4">
+                    <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-4 sm:mb-6">{flow.title}</h3>
+                    <div className="space-y-3.5 sm:space-y-4">
                       {flow.steps.map((step, idx) => (
                         <div key={idx} className="flex items-center gap-3">
-                          <div className="w-6 h-6 rounded-full bg-indigo-50 border border-indigo-100 flex items-center justify-center text-xs font-bold text-[#5b5fef]">
+                          <div className="w-6 h-6 rounded-full bg-indigo-50 border border-indigo-100 flex items-center justify-center text-xs font-bold text-[#5b5fef] shrink-0">
                             {idx + 1}
                           </div>
                           <span className="text-slate-700 font-medium text-sm">{step}</span>
@@ -115,18 +120,18 @@ export default function AutomationsPage() {
         </section>
 
         {/* --- Integration Section --- */}
-        <section className="py-24 md:py-32 overflow-hidden bg-white">
-          <div className="max-w-[1280px] mx-auto px-6">
-            <div className="bg-[#0b0f19] rounded-[40px] p-10 md:p-16 text-white relative border border-slate-800">
-              <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <section className="py-16 sm:py-24 md:py-32 overflow-hidden bg-white">
+          <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
+            <div className="bg-[#0b0f19] rounded-3xl sm:rounded-[40px] p-5 sm:p-10 md:p-16 text-white relative border border-slate-800 overflow-hidden">
+              <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
                 <div>
-                  <h2 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight leading-tight text-white">
+                  <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 tracking-tight leading-tight text-white">
                     Natively integrated with your <span className="text-indigo-400">ecosystem.</span>
                   </h2>
-                  <p className="text-slate-300 text-lg mb-8 leading-relaxed">
+                  <p className="text-slate-300 text-base sm:text-lg mb-6 sm:mb-8 leading-relaxed">
                     Connect seamlessly to Salesforce, HubSpot, Zapier, Google Workspace, and custom Webhooks. No fragile code required.
                   </p>
-                  <div className="grid grid-cols-2 gap-4 mb-8">
+                  <div className="grid grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-4 mb-8">
                     <IntegrationTag label="CRM Sync" />
                     <IntegrationTag label="API Webhooks" />
                     <IntegrationTag label="SQL Databases" />
@@ -136,15 +141,15 @@ export default function AutomationsPage() {
                     href={BOOKING_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-[#5b5fef] hover:bg-[#4a4edb] text-white px-8 py-4 rounded-xl font-bold transition-all shadow-xl shadow-indigo-500/25"
+                    className="inline-flex items-center justify-center gap-2 bg-[#5b5fef] hover:bg-[#4a4edb] text-white px-8 py-4 rounded-xl font-bold transition-all shadow-xl shadow-indigo-500/25 w-full sm:w-fit text-center"
                   >
                     Schedule Integration Call <ArrowRight size={18} />
                   </a>
                 </div>
-                <div className="grid grid-cols-3 gap-4 opacity-70 hover:opacity-100 transition-opacity">
+                <div className="grid grid-cols-3 gap-2.5 sm:gap-4 opacity-70 hover:opacity-100 transition-opacity mt-8 lg:mt-0">
                    {[1,2,3,4,5,6,7,8,9].map(n => (
                      <div key={n} className="aspect-square bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center hover:border-indigo-500/50 hover:bg-white/10 transition-all">
-                        <Database size={28} className="text-indigo-400" />
+                        <Database size={24} className="text-indigo-400 sm:w-7 sm:h-7" />
                      </div>
                    ))}
                 </div>
@@ -161,8 +166,8 @@ export default function AutomationsPage() {
 
 function IntegrationTag({ label }: { label: string }) {
   return (
-    <div className="flex items-center gap-2 text-sm font-bold">
-      <CheckCircle size={18} className="text-[#5b5fef]" /> {label}
+    <div className="flex items-center gap-2 text-xs sm:text-sm font-bold">
+      <CheckCircle size={18} className="text-[#5b5fef] shrink-0" /> {label}
     </div>
   );
 }

@@ -49,15 +49,15 @@ export default function Pricing() {
   ];
 
   return (
-    <section className="relative w-full max-w-[1280px] mx-auto px-6 py-20 md:py-28 overflow-hidden">
+    <section className="relative w-full max-w-[1280px] mx-auto px-4 sm:px-6 py-16 sm:py-20 md:py-28 overflow-hidden">
       {/* Decorative background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 w-[500px] h-[500px] bg-indigo-500/5 blur-[140px] rounded-full pointer-events-none" />
 
-      <div className="text-center mb-14 md:mb-20 max-w-2xl mx-auto">
+      <div className="text-center mb-10 sm:mb-14 md:mb-20 max-w-2xl mx-auto">
         <span className="text-[#5b5fef] font-bold text-xs uppercase tracking-[0.2em] mb-3 block">
           Solutions &amp; Pricing
         </span>
-        <h2 className="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">
           AI Solutions Built for Every Stage
         </h2>
         <p className="text-slate-600 mt-4 text-base md:text-lg leading-relaxed">
@@ -65,7 +65,7 @@ export default function Pricing() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-stretch">
         {plans.map((plan, i) => (
           <motion.div
             key={plan.name}
@@ -73,7 +73,7 @@ export default function Pricing() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
-            className={`relative p-8 rounded-3xl border flex flex-col justify-between transition-all duration-300 ${
+            className={`relative p-5 sm:p-8 rounded-2xl sm:rounded-3xl border flex flex-col justify-between transition-all duration-300 ${
               plan.popular
                 ? "border-2 border-[#5b5fef] shadow-2xl shadow-indigo-500/15 bg-white md:-translate-y-2 z-10"
                 : "border-slate-200/80 bg-white shadow-sm hover:shadow-lg hover:border-slate-300"

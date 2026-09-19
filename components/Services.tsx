@@ -21,18 +21,18 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="relative w-full max-w-[1280px] mx-auto px-6 py-20 md:py-28">
+    <section className="relative w-full max-w-[1280px] mx-auto px-4 sm:px-6 pt-4 sm:pt-6 md:pt-8 pb-16 sm:pb-20 md:pb-24 overflow-hidden">
       {/* Background Decorative Element */}
-      <div className="absolute top-0 right-0 -z-10 w-96 h-96 bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-0 right-0 -z-10 w-72 sm:w-96 h-72 sm:h-96 bg-indigo-500/5 blur-[80px] sm:blur-[120px] rounded-full pointer-events-none" />
 
       {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 gap-6">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-16 gap-6">
         <div className="max-w-2xl">
           <span className="text-[#5b5fef] font-bold text-xs uppercase tracking-[0.2em] block mb-3">
             Core Solutions
           </span>
 
-          <h2 className="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 tracking-tight leading-tight">
             Engineered For Performance
           </h2>
 
@@ -53,11 +53,11 @@ export default function Services() {
       </div>
 
       {/* Services Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-stretch">
         {services.map((service, idx) => (
           <div
             key={idx}
-            className="group relative bg-white p-8 md:p-10 rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-200 transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between"
+            className="group relative bg-white p-5 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-200 transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between"
           >
             {/* Top Bar Accent */}
             <div className="absolute top-0 left-8 right-8 h-1 bg-gradient-to-r from-[#5b5fef] to-indigo-400 rounded-b-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -69,18 +69,18 @@ export default function Services() {
               </div>
 
               {/* Title */}
-              <h3 className="text-2xl font-bold mb-4 text-slate-900 group-hover:text-[#5b5fef] transition-colors">
+              <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-slate-900 group-hover:text-[#5b5fef] transition-colors">
                 {service.title}
               </h3>
 
               {/* Description */}
-              <p className="text-slate-600 text-base leading-relaxed mb-8">
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6 sm:mb-8">
                 {service.desc}
               </p>
             </div>
 
             {/* CTAs */}
-            <div className="flex items-center justify-between pt-6 border-t border-slate-100">
+            <div className="flex items-center justify-between pt-5 sm:pt-6 border-t border-slate-100 flex-wrap gap-2.5">
               <Link
                 href={service.href}
                 className="inline-flex items-center gap-2 text-[#5b5fef] font-bold text-sm hover:text-[#4a4edb] transition-colors"

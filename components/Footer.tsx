@@ -14,11 +14,11 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-white border-t border-slate-100 pt-20 pb-12">
-      <div className="max-w-[1280px] mx-auto px-6">
+    <footer className="bg-white border-t border-slate-100 pt-16 sm:pt-20 pb-12 overflow-hidden">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
         
         {/* Top Section: Brand & Newsletter */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 mb-12 sm:mb-16">
           
           {/* Brand Column */}
           <div className="lg:col-span-4">
@@ -52,7 +52,7 @@ export default function Footer() {
           </div>
 
           {/* Newsletter Column */}
-          <div className="lg:col-span-4 bg-slate-50 p-7 rounded-3xl border border-slate-200/80">
+          <div className="lg:col-span-4 bg-slate-50 p-6 sm:p-7 rounded-3xl border border-slate-200/80">
             <h4 className="font-bold text-xs uppercase tracking-wider text-slate-900 mb-3 flex items-center gap-2">
               <Mail size={16} className="text-[#5b5fef]" /> Stay Updated
             </h4>
@@ -77,9 +77,9 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-slate-100 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-500 font-medium">
+        <div className="pt-8 border-t border-slate-100 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-500 font-medium text-center sm:text-left">
           <p>© {currentYear} SpotterDesk AI. All rights reserved.</p>
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap justify-center sm:justify-end items-center gap-4 sm:gap-6">
             <Link href="/privacy" className="hover:text-[#5b5fef] transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-[#5b5fef] transition-colors">Terms of Service</Link>
             <span className="inline-flex items-center gap-2 text-emerald-600 font-medium">

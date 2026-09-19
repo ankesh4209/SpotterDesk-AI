@@ -10,23 +10,23 @@ export default function ContactPage() {
     <div className="flex flex-col min-h-screen bg-slate-50/60">
       <Navbar />
       
-      <main className="flex-grow pt-32 md:pt-40 pb-20 md:pb-28">
-        <div className="max-w-[1280px] mx-auto px-6">
+      <main className="flex-grow pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 w-full max-w-full overflow-x-hidden">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
           
           {/* Section Header */}
-          <div className="max-w-3xl mb-14 md:mb-20">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 text-[#5b5fef] text-xs font-semibold uppercase tracking-wider mb-6 shadow-sm">
+          <div className="max-w-3xl mb-8 sm:mb-12 md:mb-14">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 text-[#5b5fef] text-xs font-semibold uppercase tracking-wider mb-4 sm:mb-5 shadow-sm">
               <MessageSquare size={14} /> Contact &amp; Consultations
             </div>
-            <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight mb-6 leading-[1.15]">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-extrabold text-slate-900 tracking-tight mb-4 sm:mb-5 leading-[1.15]">
               Let's talk about <span className="bg-gradient-to-r from-[#5b5fef] to-indigo-600 bg-clip-text text-transparent">Automation.</span>
             </h1>
-            <p className="text-slate-600 text-lg md:text-xl leading-relaxed">
+            <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
               Whether you are looking to deploy a single front-desk voice receptionist or enterprise-scale cross-system automations, our team is ready to assist.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
             
             {/* Left Side: Direct Booking + Details */}
             <div className="lg:col-span-5 space-y-6">
@@ -35,17 +35,17 @@ export default function ContactPage() {
                 href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-5 p-6 rounded-3xl bg-gradient-to-r from-[#5b5fef] to-indigo-600 text-white hover:from-[#4a4edb] hover:to-indigo-700 transition-all shadow-xl shadow-indigo-500/25 group block"
+                className="flex items-center gap-4 sm:gap-5 p-5 sm:p-6 rounded-3xl bg-gradient-to-r from-[#5b5fef] to-indigo-600 text-white hover:from-[#4a4edb] hover:to-indigo-700 transition-all shadow-xl shadow-indigo-500/25 group block"
               >
-                <div className="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center text-white shrink-0 group-hover:scale-105 transition-transform backdrop-blur-sm">
-                  <Calendar size={26} />
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white/20 rounded-2xl flex items-center justify-center text-white shrink-0 group-hover:scale-105 transition-transform backdrop-blur-sm">
+                  <Calendar size={24} className="sm:w-6 sm:h-6" />
                 </div>
                 <div className="flex-grow">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-indigo-100 block">Instant Booking</span>
-                  <h3 className="font-bold text-lg leading-snug">Book a 30-Min Call</h3>
+                  <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-indigo-100 block">Instant Booking</span>
+                  <h3 className="font-bold text-base sm:text-lg leading-snug">Book a 30-Min Call</h3>
                   <p className="text-white/80 text-xs mt-0.5">Pick a convenient slot directly online</p>
                 </div>
-                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform shrink-0" />
+                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform shrink-0 sm:w-5 sm:h-5" />
               </a>
 
               <div className="space-y-4 pt-2">
@@ -72,7 +72,7 @@ export default function ContactPage() {
 
             {/* Right Side: Responsive Form */}
             <div className="lg:col-span-7">
-              <div className="bg-white p-8 md:p-10 rounded-3xl border border-slate-200/80 shadow-xl shadow-slate-200/40">
+              <div className="bg-white p-5 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl border border-slate-200/80 shadow-xl shadow-slate-200/40">
                 <h3 className="text-xl font-bold text-slate-900 mb-6">Send us an Inquiry</h3>
                 <form className="grid grid-cols-1 md:grid-cols-2 gap-6" onSubmit={(e) => e.preventDefault()}>
                   
@@ -143,7 +143,7 @@ export default function ContactPage() {
 /* Helper Components to keep code clean */
 function ContactCard({ icon, title, detail, subDetail }: any) {
   return (
-    <div className="flex items-center gap-5 p-5 bg-white rounded-2xl border border-slate-200/80 shadow-sm group hover:border-indigo-200 transition-all">
+    <div className="flex items-center gap-3.5 sm:gap-5 p-4 sm:p-5 bg-white rounded-2xl border border-slate-200/80 shadow-sm group hover:border-indigo-200 transition-all">
       <div className="w-12 h-12 bg-indigo-50 border border-indigo-100 rounded-xl flex items-center justify-center text-[#5b5fef] group-hover:bg-[#5b5fef] group-hover:text-white transition-all shrink-0">
         {icon}
       </div>
