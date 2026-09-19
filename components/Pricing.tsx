@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
+import { BOOKING_URL } from "@/lib/constants";
 
 export default function Pricing() {
   const plans = [
@@ -15,7 +16,8 @@ export default function Pricing() {
         "Appointment Booking",
         "Customer Support",
       ],
-      button: "Learn More",
+      button: "Book a Demo",
+      href: BOOKING_URL,
     },
     {
       name: "AI Operations Systems",
@@ -28,6 +30,7 @@ export default function Pricing() {
         "Process Optimization",
       ],
       button: "Book a Consultation",
+      href: BOOKING_URL,
       popular: true,
     },
     {
@@ -40,27 +43,29 @@ export default function Pricing() {
         "Dedicated Support",
         "Tailored Deployment",
       ],
-      button: "Contact Us",
+      button: "Book Enterprise Call",
+      href: BOOKING_URL,
     },
   ];
 
   return (
-    <section className="relative w-full max-w-[1280px] mx-auto px-6 py-16 md:py-24 lg:py-32 overflow-hidden">
+    <section className="relative w-full max-w-[1280px] mx-auto px-6 py-20 md:py-28 overflow-hidden">
       {/* Decorative background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-[#5b5fef]/5 blur-[80px] md:blur-[120px] rounded-full" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 w-[500px] h-[500px] bg-indigo-500/5 blur-[140px] rounded-full pointer-events-none" />
 
-      <div className="text-center mb-12 md:mb-20">
-        <h2 className="text-3xl md:text-5xl font-bold text-[#1c1b1b] tracking-tight">
-          AI Solutions Built for Every Stage of Growth
+      <div className="text-center mb-14 md:mb-20 max-w-2xl mx-auto">
+        <span className="text-[#5b5fef] font-bold text-xs uppercase tracking-[0.2em] mb-3 block">
+          Solutions &amp; Pricing
+        </span>
+        <h2 className="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight">
+          AI Solutions Built for Every Stage
         </h2>
-        <p className="text-[#464555] mt-4 text-base md:text-lg max-w-2xl mx-auto opacity-90">
-          From AI-powered customer conversations to fully automated business
-          operations, we help organizations deploy practical AI systems that
-          drive measurable results.
+        <p className="text-slate-600 mt-4 text-base md:text-lg leading-relaxed">
+          From AI-powered customer conversations to fully automated business operations, deploy practical systems that drive measurable ROI.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
         {plans.map((plan, i) => (
           <motion.div
             key={plan.name}
@@ -68,53 +73,60 @@ export default function Pricing() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
-            className={`relative p-7 md:p-8 rounded-[24px] border flex flex-col transition-all duration-300 ${
+            className={`relative p-8 rounded-3xl border flex flex-col justify-between transition-all duration-300 ${
               plan.popular
-                ? "border-[#5b5fef] shadow-[0_20px_50px_rgba(91,95,239,0.12)] bg-white md:scale-105 z-10"
-                : "border-gray-100 bg-white/70 backdrop-blur-sm shadow-sm"
+                ? "border-2 border-[#5b5fef] shadow-2xl shadow-indigo-500/15 bg-white md:-translate-y-2 z-10"
+                : "border-slate-200/80 bg-white shadow-sm hover:shadow-lg hover:border-slate-300"
             }`}
           >
             {plan.popular && (
               <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                <span className="bg-[#5b5fef] text-white text-[10px] font-bold uppercase tracking-[0.15em] px-4 py-1 rounded-full shadow-md">
+                <span className="bg-[#5b5fef] text-white text-[11px] font-bold uppercase tracking-wider px-4 py-1 rounded-full shadow-md shadow-indigo-500/25">
                   Most Requested
                 </span>
               </div>
             )}
 
-            <div className="mb-6 md:mb-8">
-              <h3 className="text-lg font-bold text-[#1c1b1b] mb-4 uppercase tracking-wide opacity-70">
-                {plan.name}
-              </h3>
+            <div>
+              <div className="mb-6">
+                <h3 className="text-xl font-bold text-slate-900 mb-3">
+                  {plan.name}
+                </h3>
 
-              <p className="text-[#464555] text-[15px] leading-relaxed">
-                {plan.description}
-              </p>
+                <p className="text-slate-600 text-sm leading-relaxed min-h-[48px]">
+                  {plan.description}
+                </p>
+              </div>
+
+              <div className="h-px w-full bg-slate-100 my-6" />
+
+              <ul className="space-y-3.5 mb-8">
+                {plan.feat.map((f) => (
+                  <li
+                    key={f}
+                    className="flex items-center gap-3 text-sm text-slate-700"
+                  >
+                    <div className="w-5 h-5 rounded-full bg-indigo-50 text-[#5b5fef] border border-indigo-100/80 flex items-center justify-center shrink-0">
+                      <Check size={13} strokeWidth={2.5} />
+                    </div>
+                    <span className="font-medium">{f}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
 
-            <ul className="space-y-3 md:space-y-4 mb-8 md:mb-10 flex-grow">
-              {plan.feat.map((f) => (
-                <li
-                  key={f}
-                  className="flex items-start gap-3 text-sm md:text-[15px] text-[#464555]"
-                >
-                  <div className="mt-0.5 bg-[#5b5fef]/10 p-0.5 rounded-full shrink-0">
-                    <Check size={14} className="text-[#5b5fef]" />
-                  </div>
-                  <span className="font-medium leading-tight">{f}</span>
-                </li>
-              ))}
-            </ul>
-
-            <button
-              className={`w-full py-4 rounded-2xl font-bold text-[15px] transition-all duration-200 active:scale-[0.98] ${
+            <a
+              href={plan.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`w-full py-3.5 rounded-xl font-bold text-sm transition-all duration-200 active:scale-[0.98] text-center block ${
                 plan.popular
-                  ? "bg-[#5b5fef] text-white hover:bg-[#4a4edb] shadow-xl shadow-indigo-100"
-                  : "bg-white border border-gray-200 text-[#1c1b1b] hover:bg-gray-50"
+                  ? "bg-[#5b5fef] text-white hover:bg-[#4a4edb] shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/35"
+                  : "bg-slate-50 border border-slate-200 text-slate-800 hover:bg-indigo-50 hover:text-[#5b5fef] hover:border-indigo-200"
               }`}
             >
               {plan.button}
-            </button>
+            </a>
           </motion.div>
         ))}
       </div>

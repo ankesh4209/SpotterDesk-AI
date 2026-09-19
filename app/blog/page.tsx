@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Calendar, Clock, ArrowRight, Search, Tag } from 'lucide-react';
 import Link from 'next/link';
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export default function BlogPage() {
   const posts = [
@@ -32,26 +33,29 @@ export default function BlogPage() {
       category: "Product Updates",
       date: "April 28, 2026",
       readTime: "12 min read",
-      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80&w=800",
+      image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=800",
     },
   ];
 
   return (
-    <div className="min-h-screen bg-[#fdf8f8]">
+    <div className="flex flex-col min-h-screen bg-white">
       <Navbar />
 
-      <main className="pt-32 pb-20 max-w-[1280px] mx-auto px-6">
+      <main className="flex-grow pt-32 pb-24 max-w-[1280px] mx-auto px-6 w-full">
         
         {/* Header Section */}
-        <div className="mb-16">
+        <div className="mb-14 md:mb-20 max-w-2xl">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 text-[#5b5fef] text-xs font-semibold uppercase tracking-wider mb-6 shadow-sm">
+            Research &amp; Updates
+          </div>
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-7xl font-bold text-[#1c1b1b] tracking-tight mb-6"
+            className="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight mb-4"
           >
-            Insights & <span className="text-[#5b5fef]">Innovations.</span>
+            Insights &amp; <span className="bg-gradient-to-r from-[#5b5fef] to-indigo-600 bg-clip-text text-transparent">Innovations.</span>
           </motion.h1>
-          <p className="text-[#464555] text-lg max-w-2xl leading-relaxed">
+          <p className="text-slate-600 text-lg leading-relaxed">
             Exploring the intersection of LLMs, low-latency voice technology, and the future of autonomous business operations.
           </p>
         </div>
@@ -60,7 +64,7 @@ export default function BlogPage() {
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="relative group rounded-[40px] overflow-hidden bg-white border border-gray-100 shadow-2xl mb-20 cursor-pointer"
+          className="relative group rounded-3xl overflow-hidden bg-white border border-slate-200/80 shadow-xl mb-16 md:mb-24 cursor-pointer hover:border-indigo-200 transition-all"
         >
           <div className="grid lg:grid-cols-2 items-center">
             <div className="h-full min-h-[300px] overflow-hidden">
@@ -70,25 +74,25 @@ export default function BlogPage() {
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
             </div>
-            <div className="p-8 md:p-16">
-              <div className="flex items-center gap-3 text-[#5b5fef] font-bold text-xs uppercase tracking-widest mb-6">
+            <div className="p-8 md:p-14">
+              <div className="flex items-center gap-2 text-[#5b5fef] font-bold text-xs uppercase tracking-wider mb-4">
                 <Tag size={14} /> Featured Article
               </div>
-              <h2 className="text-3xl md:text-5xl font-bold text-[#1c1b1b] mb-6 group-hover:text-[#5b5fef] transition-colors leading-tight">
+              <h2 className="text-2xl md:text-4xl font-bold text-slate-900 mb-4 group-hover:text-[#5b5fef] transition-colors leading-tight">
                 The Anatomy of a Perfect AI Voice Agent
               </h2>
-              <p className="text-[#464555] text-lg mb-8 line-clamp-3">
+              <p className="text-slate-600 text-base leading-relaxed mb-6 line-clamp-3">
                 What makes users trust an AI? We break down the psychology of vocal tone, response latency, and the "uncanny valley" in enterprise applications.
               </p>
-              <Link href="/blog/featured-article" className="inline-flex items-center gap-2 font-bold text-[#1c1b1b] border-b-2 border-[#5b5fef] pb-1 hover:gap-4 transition-all">
-                Read Full Story <ArrowRight size={20} className="text-[#5b5fef]" />
+              <Link href="/blog" className="inline-flex items-center gap-2 font-bold text-slate-900 hover:text-[#5b5fef] transition-colors text-sm">
+                Read Full Story <ArrowRight size={16} className="text-[#5b5fef]" />
               </Link>
             </div>
           </div>
         </motion.div>
 
         {/* Blog Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {posts.map((post, i) => (
             <motion.article 
               key={post.id}
@@ -96,40 +100,44 @@ export default function BlogPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="group cursor-pointer"
+              className="group cursor-pointer p-6 rounded-3xl bg-slate-50/70 border border-slate-200/80 hover:bg-white hover:border-indigo-200 hover:shadow-xl hover:shadow-indigo-500/5 transition-all flex flex-col justify-between"
             >
-              <div className="relative aspect-video rounded-3xl overflow-hidden mb-6 border border-gray-100 shadow-sm">
-                <img 
-                  src={post.image} 
-                  alt={post.title} 
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
-                />
-                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold text-[#5b5fef] uppercase tracking-wider">
-                  {post.category}
+              <div>
+                <div className="relative aspect-video rounded-2xl overflow-hidden mb-6 border border-slate-200/80 shadow-sm">
+                  <img 
+                    src={post.image} 
+                    alt={post.title} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                  />
+                  <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold text-[#5b5fef] uppercase tracking-wider shadow-sm">
+                    {post.category}
+                  </div>
                 </div>
+                
+                <div className="flex items-center gap-4 text-slate-500 text-xs font-medium mb-3">
+                  <span className="flex items-center gap-1.5"><Calendar size={13} /> {post.date}</span>
+                  <span className="flex items-center gap-1.5"><Clock size={13} /> {post.readTime}</span>
+                </div>
+                
+                <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-[#5b5fef] transition-colors line-clamp-2">
+                  {post.title}
+                </h3>
+                
+                <p className="text-slate-600 text-sm leading-relaxed mb-6 line-clamp-2">
+                  {post.excerpt}
+                </p>
               </div>
               
-              <div className="flex items-center gap-4 text-[#767586] text-xs font-medium mb-4">
-                <span className="flex items-center gap-1"><Calendar size={14} /> {post.date}</span>
-                <span className="flex items-center gap-1"><Clock size={14} /> {post.readTime}</span>
-              </div>
-              
-              <h3 className="text-2xl font-bold text-[#1c1b1b] mb-4 group-hover:text-[#5b5fef] transition-colors line-clamp-2">
-                {post.title}
-              </h3>
-              
-              <p className="text-[#464555] text-sm leading-relaxed mb-6 line-clamp-3">
-                {post.excerpt}
-              </p>
-              
-              <div className="flex items-center gap-2 font-bold text-sm text-[#1c1b1b] group-hover:text-[#5b5fef] transition-colors">
-                Read Article <ArrowRight size={16} className="text-[#5b5fef]" />
+              <div className="flex items-center gap-2 font-bold text-sm text-slate-900 group-hover:text-[#5b5fef] transition-colors pt-2 border-t border-slate-200/60">
+                Read Article <ArrowRight size={15} className="text-[#5b5fef] group-hover:translate-x-1 transition-transform" />
               </div>
             </motion.article>
           ))}
         </div>
 
       </main>
+
+      <Footer />
     </div>
   );
 }

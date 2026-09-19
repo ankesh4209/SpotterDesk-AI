@@ -26,53 +26,52 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="bg-[#f8f7f6] py-12 md:py-24 lg:py-32">
+    <section className="bg-slate-50/80 border-y border-slate-200/60 py-20 md:py-28">
       <div className="max-w-[1280px] mx-auto px-6">
         
-        {/* Section Header - Reduced Margin */}
-        <div className="mb-12 md:mb-20">
-          <span className="text-[#5b5fef] font-bold text-xs uppercase tracking-[0.2em] mb-3 block">Process</span>
-          <h2 className="text-3xl md:text-5xl font-bold text-[#1c1b1b] tracking-tight">
-            How it works
+        {/* Section Header */}
+        <div className="mb-14 md:mb-20 text-center max-w-2xl mx-auto">
+          <span className="text-[#5b5fef] font-bold text-xs uppercase tracking-[0.2em] mb-3 block">
+            Three-Step Framework
+          </span>
+          <h2 className="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight">
+            How SpotterDesk Works
           </h2>
+          <p className="text-slate-600 text-base md:text-lg mt-4 leading-relaxed">
+            From discovering operational bottlenecks to deploying high-availability voice agents and workflows.
+          </p>
         </div>
 
-        {/* Steps Grid - Adjusted Gaps */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-y-16 md:gap-x-12 lg:gap-x-20">
+        {/* Steps Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {steps.map((step, index) => (
             <motion.div 
               key={step.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.2 }}
-              className="group relative"
+              transition={{ delay: index * 0.15 }}
+              className="group relative p-8 rounded-3xl bg-white border border-slate-200/80 shadow-sm hover:shadow-xl hover:shadow-indigo-500/5 hover:border-indigo-200 transition-all duration-300 flex flex-col justify-between"
             >
-              
-              {/* Responsive Background Numbering */}
-              <div className="text-6xl md:text-8xl lg:text-9xl font-black text-black/[0.04] absolute -top-6 md:-top-10 left-0 select-none group-hover:text-[#5b5fef]/5 transition-colors">
-                {step.id}
-              </div>
-
-              <div className="relative z-10">
-                {/* Icon Box */}
-                <div className="w-12 h-12 md:w-14 md:h-14 bg-white shadow-sm border border-gray-100 rounded-2xl flex items-center justify-center text-[#5b5fef] mb-6 transition-all group-hover:bg-[#5b5fef] group-hover:text-white group-hover:shadow-lg group-hover:shadow-indigo-100">
-                  <step.icon size={24} className="md:w-7 md:h-7" />
+              <div>
+                {/* Header row with Icon and Step Badge */}
+                <div className="flex items-center justify-between mb-6">
+                  <div className="w-14 h-14 bg-indigo-50 border border-indigo-100 rounded-2xl flex items-center justify-center text-[#5b5fef] group-hover:bg-[#5b5fef] group-hover:text-white transition-all shadow-sm">
+                    <step.icon size={26} />
+                  </div>
+                  <span className="text-xs font-bold text-[#5b5fef] bg-indigo-50 px-3 py-1.5 rounded-full border border-indigo-100 tracking-wider">
+                    STEP {step.id}
+                  </span>
                 </div>
 
-                <h3 className="text-xl md:text-2xl font-bold mb-3 text-[#1c1b1b]">
+                <h3 className="text-xl md:text-2xl font-bold mb-3 text-slate-900 group-hover:text-[#5b5fef] transition-colors">
                   {step.title}
                 </h3>
                 
-                <p className="text-[#464555] text-sm md:text-base lg:text-lg leading-relaxed max-w-sm">
+                <p className="text-slate-600 text-base leading-relaxed">
                   {step.desc}
                 </p>
               </div>
-
-              {/* Progress Line (Desktop Only) - Subtle & Professional */}
-              {step.id !== '03' && (
-                <div className="hidden md:block absolute top-12 -right-6 lg:-right-10 w-8 lg:w-12 border-t border-gray-200" />
-              )}
             </motion.div>
           ))}
         </div>

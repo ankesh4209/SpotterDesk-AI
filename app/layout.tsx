@@ -4,8 +4,11 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "SpotterDesk AI",
-  description: "AI Voice Agents & Automation",
+  title: "SpotterDesk AI - AI Voice Agents & Workflow Automations",
+  description: "Deploy production-grade AI voice receptionists and intelligent automations with sub-500ms latency.",
+  icons: {
+    icon: "/images/logo.png",
+  },
 };
 
 export default function RootLayout({
@@ -16,11 +19,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body 
-        className={`${inter.className} min-h-screen antialiased overflow-x-hidden bg-background text-foreground`}
+        className={`${inter.className} min-h-screen antialiased overflow-x-hidden bg-white text-slate-900`}
       >
-        <main className="relative flex flex-col min-h-screen">
+        <div className="relative flex flex-col min-h-screen">
           {children}
-        </main>
+        </div>
       </body>
     </html>
   );

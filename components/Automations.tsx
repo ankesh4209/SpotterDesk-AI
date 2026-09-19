@@ -47,24 +47,26 @@ export default function Automations() {
   ];
 
   return (
-    <section className="bg-[#f8f9fa] py-16 md:py-24 lg:py-28 overflow-hidden">
+    <section className="bg-white py-20 md:py-28 overflow-hidden">
       <div className="max-w-[1280px] mx-auto px-6">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-10 md:mb-16 text-center md:text-left"
+          className="mb-14 md:mb-20 text-center max-w-2xl mx-auto"
         >
-          <span className="text-[#5b5fef] font-bold text-[10px] md:text-xs uppercase tracking-[0.3em] block mb-3">
-            AI OPERATIONS
+          <span className="text-[#5b5fef] font-bold text-xs uppercase tracking-[0.2em] block mb-3">
+            AI Operations
           </span>
 
-          <h2 className="text-3xl md:text-4xl lg:text-[42px] font-bold text-[#1c1b1b] leading-tight">
-            Autonomous Operations
+          <h2 className="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight leading-tight">
+            Autonomous Operations Stack
           </h2>
 
-          <div className="h-1.5 w-12 bg-[#5b5fef] mt-5 mx-auto md:mx-0 rounded-full" />
+          <p className="text-slate-600 text-base md:text-lg mt-4 leading-relaxed">
+            Connect every touchpoint across your CRM, voice channels, and internal tools into unified autonomous workflows.
+          </p>
         </motion.div>
 
         {/* Cards */}
@@ -73,7 +75,7 @@ export default function Automations() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8"
         >
           {automationItems.map((item, i) => {
             const Icon = item.icon;
@@ -82,30 +84,25 @@ export default function Automations() {
               <motion.div
                 key={i}
                 variants={itemVariants}
-                whileHover={{
-                  y: -5,
-                  backgroundColor: "#ffffff",
-                  boxShadow: "0 15px 30px rgba(0,0,0,0.04)",
-                }}
-                className="relative p-7 md:p-8 bg-white/60 backdrop-blur-sm border border-gray-100 rounded-[24px] transition-all duration-300 group"
+                whileHover={{ y: -6 }}
+                className="relative p-8 bg-slate-50/80 hover:bg-white border border-slate-200/80 hover:border-indigo-200 rounded-3xl transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-indigo-500/5 group flex flex-col justify-between"
               >
-                {/* Accent */}
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-10 bg-[#5b5fef] rounded-r-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div>
+                  {/* Icon */}
+                  <div className="w-14 h-14 bg-white group-hover:bg-[#5b5fef] group-hover:text-white border border-slate-200/80 group-hover:border-transparent rounded-2xl flex items-center justify-center text-[#5b5fef] mb-6 transition-all duration-300 shadow-sm">
+                    <Icon size={26} />
+                  </div>
 
-                {/* Icon */}
-                <div className="w-12 h-12 bg-[#5b5fef]/10 rounded-xl flex items-center justify-center text-[#5b5fef] mb-6 group-hover:bg-[#5b5fef] group-hover:text-white transition-all duration-300">
-                  <Icon size={24} />
+                  {/* Title */}
+                  <h3 className="text-xl font-bold mb-3 text-slate-900 group-hover:text-[#5b5fef] transition-colors">
+                    {item.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-slate-600 text-base leading-relaxed">
+                    {item.desc}
+                  </p>
                 </div>
-
-                {/* Title */}
-                <h4 className="text-lg md:text-xl font-bold mb-3 text-[#1c1b1b]">
-                  {item.title}
-                </h4>
-
-                {/* Description */}
-                <p className="text-[#464555] text-sm md:text-base leading-relaxed opacity-90">
-                  {item.desc}
-                </p>
               </motion.div>
             );
           })}

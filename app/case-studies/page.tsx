@@ -5,6 +5,7 @@ import { ArrowUpRight, CheckCircle2, TrendingUp, Users, BarChart3 } from 'lucide
 import Link from 'next/link';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { BOOKING_URL } from "@/lib/constants";
 
 export default function CaseStudiesPage() {
   const cases = [
@@ -41,62 +42,61 @@ export default function CaseStudiesPage() {
         { label: "Call Capacity", value: "Infinite", icon: <BarChart3 size={20} /> }
       ],
       description: "NexGen used SpotterDesk to qualify 50,000 leads in a single weekend during a product launch—something impossible with human staff.",
-      image: "https://images.unsplash.com/photo-1551288049-bbda6465fba1?auto=format&fit=crop&q=80&w=800",
+      image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=800",
       tags: ["Sales", "Lead Gen", "Scaling"]
     }
   ];
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#fdf8f8]">
+    <div className="flex flex-col min-h-screen bg-white">
       <Navbar />
 
-      <main className="flex-grow pt-32 pb-20">
+      <main className="flex-grow pt-32 pb-24">
         <div className="max-w-[1280px] mx-auto px-6">
           
           {/* --- Hero Header --- */}
-          <div className="text-center mb-20 md:mb-32">
-            <motion.span 
+          <div className="text-center mb-16 md:mb-24 max-w-3xl mx-auto">
+            <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="text-[#5b5fef] font-bold text-xs md:text-sm uppercase tracking-[0.4em] mb-6 block"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 text-[#5b5fef] text-xs font-semibold uppercase tracking-wider mb-6 shadow-sm"
             >
               Proof of Performance
-            </motion.span>
+            </motion.div>
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-4xl md:text-7xl font-bold text-[#1c1b1b] tracking-tight mb-8"
+              className="text-4xl md:text-7xl font-extrabold text-slate-900 tracking-tight mb-6"
             >
-              Real Results. <span className="text-[#5b5fef]">Verified.</span>
+              Real Results. <span className="bg-gradient-to-r from-[#5b5fef] to-indigo-600 bg-clip-text text-transparent">Verified.</span>
             </motion.h1>
-            <p className="text-[#464555] text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-              We don't just promise efficiency; we deliver it. Explore how global leaders are leveraging SpotterDesk AI to transform their operations.
+            <p className="text-slate-600 text-lg md:text-xl leading-relaxed">
+              We don't just promise efficiency; we deliver it. Explore how forward-thinking leaders are leveraging SpotterDesk AI to transform their operations.
             </p>
           </div>
 
           {/* --- Case Studies List --- */}
-          <div className="space-y-20 md:space-y-32">
+          <div className="space-y-16 md:space-y-24">
             {cases.map((item, i) => (
               <motion.div 
                 key={i}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
-                className={`grid lg:grid-cols-2 gap-12 md:gap-20 items-center ${i % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}
+                className={`grid lg:grid-cols-2 gap-12 md:gap-16 items-center ${i % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}
               >
                 {/* Image Section */}
                 <div className={`${i % 2 !== 0 ? 'lg:order-2' : ''}`}>
                   <div className="relative group">
-                    <div className="absolute -inset-4 bg-[#5b5fef]/5 rounded-[40px] scale-95 group-hover:scale-100 transition-transform duration-500" />
-                    <div className="relative overflow-hidden rounded-[32px] aspect-[4/3] border border-gray-100 shadow-2xl">
+                    <div className="relative overflow-hidden rounded-3xl aspect-[4/3] border border-slate-200/80 shadow-xl">
                       <img 
                         src={item.image} 
                         alt={item.title} 
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       />
-                      <div className="absolute top-6 left-6 flex gap-2">
+                      <div className="absolute top-5 left-5 flex gap-2">
                         {item.tags.map(tag => (
-                          <span key={tag} className="bg-white/90 backdrop-blur-md text-[#1c1b1b] px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">
+                          <span key={tag} className="bg-white/95 backdrop-blur-md text-slate-900 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-sm">
                             {tag}
                           </span>
                         ))}
@@ -106,52 +106,59 @@ export default function CaseStudiesPage() {
                 </div>
 
                 {/* Content Section */}
-                <div className="space-y-8">
+                <div className="space-y-6">
                   <div>
-                    <div className="text-[#5b5fef] font-bold text-sm uppercase tracking-widest mb-2">{item.company} — {item.industry}</div>
-                    <h2 className="text-3xl md:text-4xl font-bold text-[#1c1b1b] leading-tight mb-6">
+                    <div className="text-[#5b5fef] font-bold text-xs uppercase tracking-wider mb-2">{item.company} — {item.industry}</div>
+                    <h2 className="text-3xl md:text-4xl font-bold text-slate-900 leading-tight mb-4">
                       {item.title}
                     </h2>
-                    <p className="text-[#464555] text-lg leading-relaxed mb-8">
+                    <p className="text-slate-600 text-base md:text-lg leading-relaxed mb-6">
                       {item.description}
                     </p>
                   </div>
 
                   {/* Stats Grid */}
-                  <div className="grid grid-cols-2 gap-6 p-8 bg-white rounded-3xl border border-gray-100 shadow-sm">
+                  <div className="grid grid-cols-2 gap-6 p-6 bg-slate-50 rounded-2xl border border-slate-200/80">
                     {item.stats.map((stat, idx) => (
                       <div key={idx}>
                         <div className="flex items-center gap-2 text-[#5b5fef] mb-1">
                           {stat.icon}
-                          <span className="text-2xl md:text-3xl font-black tracking-tighter">{stat.value}</span>
+                          <span className="text-2xl md:text-3xl font-black tracking-tight">{stat.value}</span>
                         </div>
-                        <div className="text-[#767586] text-xs font-bold uppercase tracking-widest">{stat.label}</div>
+                        <div className="text-slate-500 text-xs font-bold uppercase tracking-wider">{stat.label}</div>
                       </div>
                     ))}
                   </div>
 
-                  <Link 
-                    href={`/case-studies/${item.company.toLowerCase().replace(/\s+/g, '-')}`}
-                    className="inline-flex items-center gap-2 font-bold text-[#1c1b1b] group hover:text-[#5b5fef] transition-colors"
+                  <a 
+                    href={BOOKING_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 font-bold text-slate-900 group hover:text-[#5b5fef] transition-colors pt-2"
                   >
-                    View Full Technical Breakdown 
-                    <ArrowUpRight size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                  </Link>
+                    Schedule Similar Implementation
+                    <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform text-[#5b5fef]" />
+                  </a>
                 </div>
               </motion.div>
             ))}
           </div>
 
           {/* --- Bottom CTA --- */}
-          <section className="mt-32 text-center bg-[#1c1b1b] rounded-[48px] p-12 md:p-24 text-white relative overflow-hidden">
-            <div className="relative z-10">
-              <h2 className="text-3xl md:text-5xl font-bold mb-6">Your success story starts here.</h2>
-              <p className="text-gray-400 text-lg mb-10 max-w-xl mx-auto">
-                Ready to see what SpotterDesk AI can do for your specific business logic? Let's build a prototype.
+          <section className="mt-24 md:mt-32 text-center bg-[#0b0f19] rounded-[40px] p-10 md:p-20 text-white relative overflow-hidden border border-slate-800">
+            <div className="relative z-10 max-w-2xl mx-auto">
+              <h2 className="text-3xl md:text-5xl font-bold mb-5 tracking-tight text-white">Your success story starts here.</h2>
+              <p className="text-slate-300 text-base md:text-lg mb-8 leading-relaxed">
+                Ready to see what SpotterDesk AI can do for your business operations? Let's engineer a custom workflow.
               </p>
-              <button className="bg-[#5b5fef] text-white px-10 py-4 rounded-2xl font-bold hover:bg-[#4a4edb] transition-all shadow-xl shadow-indigo-500/20">
+              <a 
+                href={BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-[#5b5fef] hover:bg-[#4a4edb] text-white px-9 py-4 rounded-xl font-bold transition-all shadow-xl shadow-indigo-500/25"
+              >
                 Schedule a Consultation
-              </button>
+              </a>
             </div>
           </section>
 
